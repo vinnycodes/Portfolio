@@ -1,0 +1,23 @@
+---
+// SquigglyLine component - Animated decorative line
+export interface Props {
+  class?: string;
+  width?: string;
+  height?: string;
+}
+
+const { class: className = '', width = 'w-64', height = 'h-3' } = Astro.props;
+---
+
+<div class={`relative ${width} ${height} ${className}`}>
+  <svg
+    class="w-full h-full squiggly-line-svg"
+    viewBox="0 0 100 12"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      class="squiggly-line"
+      d="M1.4,6c0,0,9-9,18,0s18,0,18,0s9-9,18,0s18,0,18,0s9-9,18,0s18,0,18,0s9-9,18,0s18,0,18,0"
+    />
+  </svg>
+</div>
