@@ -22,12 +22,18 @@ const InteractiveWorkspace: React.FC = () => {
     <div className="p-5 overflow-clip">
       {/* Header */}
       <div className="flex items-center gap-2 mb-4">
-        <div className="w-4 h-4 bg-black rounded-sm flex items-center justify-center text-xs">
-          {currentApp.icon}
+        <div className="w-4 h-4 rounded-sm flex items-center justify-center overflow-hidden">
+          <img
+            src={currentApp.iconSrc.src}
+            alt={currentApp.name}
+            className="w-full h-full object-cover"
+          />
         </div>
-        <span className="text-sm font-medium text-gray-600">{currentApp.name}</span>
+        <span className="text-sm font-normal text-gray-600">
+          {currentApp.name}
+        </span>
       </div>
-      
+
       {/* Workspace Tabs */}
       <div className="overflow-x-auto scrollbar-hide mb-3">
         <div className="flex gap-1 min-w-max">
@@ -41,17 +47,23 @@ const InteractiveWorkspace: React.FC = () => {
                   : 'bg-white border border-gray-200 hover:border-gray-300'
               }`}
             >
-              <div className={`text-sm font-medium ${
-                selectedTab === workspace.id ? 'text-indigo-600' : 'text-gray-700'
-              }`}>
+              <div
+                className={`text-sm font-medium ${
+                  selectedTab === workspace.id
+                    ? 'text-indigo-600'
+                    : 'text-gray-700'
+                }`}
+              >
                 {workspace.name}
+                
+                <hr className='my-1  border-gray-400 border-1 '/>
               </div>
               <div className="text-xs text-gray-500">{workspace.workspace}</div>
             </div>
           ))}
         </div>
       </div>
-      
+
       {/* App Icons Row */}
       <div className="overflow-hidden bg-white py-4 px-4 rounded-xl shadow-sm min-w-max">
         <div className="flex items-center gap-6 min-w-max">

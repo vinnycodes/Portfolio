@@ -21,7 +21,7 @@ export interface Workspace {
 
 export interface AppData {
   name: string;
-  icon: string;
+  iconSrc: ImageMetadata | HTMLImageElement;
   workspaces: Workspace[];
 }
 

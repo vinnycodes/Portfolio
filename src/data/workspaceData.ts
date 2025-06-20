@@ -68,7 +68,7 @@ export const appIconConfigs: AppIconConfig[] = [
 export const appData: Record<AppKey, AppData> = {
   focusflow: {
     name: 'FOCUS FLOW',
-    icon: '⬨',
+    iconSrc: codeIcon,
     workspaces: [
       {
         id: 1,
@@ -83,7 +83,7 @@ export const appData: Record<AppKey, AppData> = {
   },
   notion: {
     name: 'NOTION',
-    icon: '📝',
+    iconSrc: codeIcon,
     workspaces: [
       {
         id: 1,
@@ -108,7 +108,7 @@ export const appData: Record<AppKey, AppData> = {
   },
   figma: {
     name: 'FIGMA',
-    icon: '🎨',
+    iconSrc: codeIcon,
     workspaces: [
       {
         id: 1,
@@ -127,7 +127,7 @@ export const appData: Record<AppKey, AppData> = {
   },
   word: {
     name: 'MICROSOFT WORD',
-    icon: '📄',
+    iconSrc: codeIcon,
     workspaces: [
       { id: 1, name: 'Resume Draft', workspace: 'Personal', active: true },
       { id: 2, name: 'Meeting Notes', workspace: 'Work', active: false },
@@ -136,7 +136,7 @@ export const appData: Record<AppKey, AppData> = {
   },
   vscode: {
     name: 'VS CODE',
-    icon: '💻',
+    iconSrc: codeIcon,
     workspaces: [
       { id: 1, name: 'Portfolio Website', workspace: 'Personal', active: true },
       {
@@ -150,7 +150,7 @@ export const appData: Record<AppKey, AppData> = {
   },
   steadytune: {
     name: 'STEADYTUNE',
-    icon: '🎵',
+    iconSrc: codeIcon,
     workspaces: [
       { id: 1, name: 'Chill Vibes Playlist', workspace: 'Music', active: true },
       { id: 2, name: 'Focus Beats', workspace: 'Productivity', active: false },
@@ -159,7 +159,7 @@ export const appData: Record<AppKey, AppData> = {
   },
   profile: {
     name: 'PROFILE',
-    icon: '👤',
+    iconSrc: codeIcon,
     workspaces: [
       {
         id: 1,
@@ -178,7 +178,7 @@ export const appData: Record<AppKey, AppData> = {
   },
   moreapps: {
     name: 'MORE APPS',
-    icon: '❤',
+    iconSrc: codeIcon,
     workspaces: [
       { id: 1, name: 'App Store', workspace: 'Discovery', active: true },
       {
