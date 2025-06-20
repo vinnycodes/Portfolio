@@ -2,31 +2,82 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-safari border-b border-gray-100">
+<nav
+  class="fixed top-0 left-0 right-0 z-50 backdrop-blur-safari border-b border-gray-100"
+>
   <div class="max-w-7xl mx-auto px-6 py-4">
     <div class="flex items-center justify-center">
       <ul class="flex items-center space-x-8">
         <li>
-          <a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`}>
-            Home
-          </a>
+          {
+            currentPath === '/' ? (
+              <button class="nav-link active disabled scroll-to-top">
+                Home
+              </button>
+            ) : (
+              <a href="/" class="nav-link">
+                Home
+              </a>
+            )
+          }
         </li>
         <li>
-          <a href="/about" class={`nav-link ${currentPath === '/about' ? 'active' : ''}`}>
-            About
-          </a>
+          {
+            currentPath === '/about' ? (
+              <button class="nav-link active disabled scroll-to-top">
+                About
+              </button>
+            ) : (
+              <a href="/about" class="nav-link">
+                About
+              </a>
+            )
+          }
         </li>
         <li>
-          <a href="/work" class={`nav-link ${currentPath === '/work' ? 'active' : ''}`}>
-            Work
-          </a>
+          {
+            currentPath === '/work' ? (
+              <button class="nav-link active disabled scroll-to-top">
+                Work
+              </button>
+            ) : (
+              <a href="/work" class="nav-link">
+                Work
+              </a>
+            )
+          }
         </li>
         <li>
-          <a href="/contact" class={`nav-link ${currentPath === '/contact' ? 'active' : ''}`}>
-            Contact
-          </a>
+          {
+            currentPath === '/contact' ? (
+              <button class="nav-link active disabled scroll-to-top">
+                Contact
+              </button>
+            ) : (
+              <a href="/contact" class="nav-link">
+                Contact
+              </a>
+            )
+          }
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const scrollButtons = document.querySelectorAll('.scroll-to-top');
+
+    scrollButtons.forEach((button) => {
+      button.addEventListener('click', function () {
+        if (window.scrollY > 0) {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          });
+        }
+      });
+    });
+  });
+</script>

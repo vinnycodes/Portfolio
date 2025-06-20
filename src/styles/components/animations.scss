@@ -1,0 +1,23 @@
+// Animation Components
+@layer components {
+  .crayon-line {
+    stroke-dasharray: 0 200;
+    animation: drawCrayonLine 2s ease-out 0.5s forwards;
+    opacity: 0.8;
+    filter: drop-shadow(0 1px 1px rgba(239, 68, 68, 0.2));
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent;
+  }
+}
+
+// Keyframe animations
+@keyframes drawCrayonLine {
+  0% {
+    stroke-dasharray: 0 200;
+  }
+  100% {
+    stroke-dasharray: 200 0;
+  }
+}

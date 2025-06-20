@@ -1,0 +1,31 @@
+// Navigation Component Styles
+@layer components {
+  .nav-link {
+    @apply text-gray-700 hover:text-gray-900 font-medium transition-all duration-200 px-4 py-2 rounded-full border-none bg-transparent;
+    text-decoration: none;
+    cursor: pointer;
+
+    &.active {
+      @apply bg-gray-200 text-gray-900;
+
+      &.disabled {
+        cursor: pointer; // Keep cursor as pointer for scroll-to-top functionality
+
+        &:hover {
+          @apply bg-gray-300; // Slightly darker on hover to indicate clickability
+        }
+      }
+    }
+
+    &:hover:not(.active) {
+      @apply bg-gray-100;
+    }
+
+    // Ensure button styling matches link styling
+    &[type='button'] {
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+  }
+}

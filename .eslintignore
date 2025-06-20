@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+.astro/
+
+# Environment files
+.env
+.env.*
+
+# Generated files
+public/
+*.min.js
+*.min.css
+
+# Config files
+tailwind.config.mjs
+astro.config.mjs
+vitest.config.ts
+
+# Logs
+*.log
+
+# Coverage
+coverage/

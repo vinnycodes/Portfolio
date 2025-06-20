@@ -19,7 +19,7 @@ $text-secondary: #6b7280;
     font-family: 'Inter', system-ui, sans-serif;
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply antialiased text-gray-900 bg-white;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
@@ -30,33 +30,44 @@ $text-secondary: #6b7280;
 @layer components {
   .bento-card {
     @apply bg-gray-50 rounded-2xl transition-all duration-200;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.05),
+      0 1px 2px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(229, 231, 235, 0.8);
-    
+
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+      box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.1),
+        0 2px 4px rgba(0, 0, 0, 0.06);
     }
   }
-  
+
   .nav-link {
     @apply text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200;
-    
+
     &.active {
       @apply text-red-500;
     }
   }
-  
+
   .project-card {
     @apply bento-card p-6 cursor-pointer;
-    
+
     &:hover {
       transform: translateY(-4px);
     }
   }
-  
+
   .text-gradient {
     @apply bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent;
+  }
+
+  .crayon-line {
+    stroke-dasharray: 0 200;
+    animation: drawCrayonLine 2s ease-out 0.5s forwards;
+    opacity: 0.8;
+    filter: drop-shadow(0 1px 1px rgba(239, 68, 68, 0.2));
   }
 }
 
@@ -65,16 +76,16 @@ $text-secondary: #6b7280;
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
-    
+
     &::-webkit-scrollbar {
       display: none;
     }
   }
-  
+
   .backdrop-blur-safari {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -92,22 +103,40 @@ $text-secondary: #6b7280;
 @mixin ios-card {
   background: #f9fafb;
   border-radius: 16px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    0 1px 2px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(229, 231, 235, 0.8);
   transition: all 0.2s ease;
-  
+
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.1),
+      0 2px 4px rgba(0, 0, 0, 0.06);
   }
 }
 
 @mixin card-hover {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+}
+
+// Keyframe animations
+@keyframes drawCrayonLine {
+  0% {
+    stroke-dasharray: 0 200;
+  }
+  100% {
+    stroke-dasharray: 200 0;
   }
 }
 
@@ -117,15 +146,15 @@ $text-secondary: #6b7280;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   grid-auto-rows: minmax(160px, auto);
-  
+
   @media (min-width: 768px) {
     gap: 1.5rem;
   }
-  
+
   .span-2 {
     grid-column: span 2;
   }
-  
+
   .span-row-2 {
     grid-row: span 2;
   }

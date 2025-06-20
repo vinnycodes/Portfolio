@@ -5,32 +5,30 @@ export interface Props {
   span?: 'default' | 'span-2' | 'span-row-2' | 'span-2-row-2';
 }
 
-const { 
-  class: className = '', 
-  padding = 'md',
-  span = 'default'
-} = Astro.props;
+const { class: className = '', padding = 'md', span = 'default' } = Astro.props;
 
 const paddingClasses = {
   none: '',
   sm: 'p-4',
-  md: 'p-6', 
-  lg: 'p-8'
+  md: 'p-6',
+  lg: 'p-8',
 };
 
 const spanClasses = {
   default: '',
   'span-2': 'span-2',
   'span-row-2': 'span-row-2',
-  'span-2-row-2': 'span-2 span-row-2'
+  'span-2-row-2': 'span-2 span-row-2',
 };
 
 const classes = [
   'bento-card',
   paddingClasses[padding],
   spanClasses[span],
-  className
-].filter(Boolean).join(' ');
+  className,
+]
+  .filter(Boolean)
+  .join(' ');
 ---
 
 <div class={classes}>
