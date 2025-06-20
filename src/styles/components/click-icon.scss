@@ -1,0 +1,68 @@
+// Click Icon Animation Component
+@layer components {
+  .click-icon-container {
+    transition: all 0.3s ease;
+
+    // Default state - radiating lines are visible but subtle
+    .radiating-line {
+      opacity: 0.6;
+      stroke-dasharray: 0;
+      stroke-dashoffset: 0;
+      transition: all 0.4s ease;
+    }
+
+    // Arrow default state
+    .click-arrow {
+      fill: none;
+      transition: fill 0.3s ease;
+    }
+
+    // Text default state
+    span {
+      transition: all 0.3s ease;
+      transform: translateY(0);
+    }
+
+    // Hover state
+    &:hover {
+      .click-arrow {
+        fill: #fbbf24; // Golden yellow fill for arrow
+        stroke: #fbbf24;
+      }
+
+      .radiating-line {
+        opacity: 1;
+        stroke: #fbbf24;
+        stroke-dasharray: 10;
+        animation: lightbulb-burst 0.6s ease-out;
+      }
+
+      span {
+        transform: translateY(-2px);
+        color: #f59e0b; // Slightly darker golden yellow for text
+      }
+    }
+  }
+}
+
+// Lightbulb turning on animation - radiating lines animate outward
+@keyframes lightbulb-burst {
+  0% {
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
+    opacity: 0.6;
+    stroke-width: 2;
+  }
+  50% {
+    stroke-dasharray: 5;
+    stroke-dashoffset: -10;
+    opacity: 1;
+    stroke-width: 3;
+  }
+  100% {
+    stroke-dasharray: 10;
+    stroke-dashoffset: -20;
+    opacity: 0.8;
+    stroke-width: 2;
+  }
+}

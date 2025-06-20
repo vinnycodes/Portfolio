@@ -44,7 +44,7 @@ const InteractiveWorkspace: React.FC = () => {
               className={`px-4 py-1.5 rounded-lg text-center min-w-max cursor-pointer transition-all ${
                 selectedTab === workspace.id
                   ? 'bg-indigo-100 border-2 border-indigo-300'
-                  : 'bg-white border border-gray-200 hover:border-gray-300'
+                  : 'bg-white border-2 border-gray-200 hover:border-gray-300'
               }`}
             >
               <div
