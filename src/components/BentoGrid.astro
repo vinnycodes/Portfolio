@@ -1,0 +1,127 @@
+---
+import ProjectCard from './ProjectCard.jsx';
+import BentoCard from './BentoCard.astro';
+---
+
+<div class="pt-24 pb-12">
+  <div class="bento-grid">
+    <!-- Notion Section -->
+    <BentoCard span="span-2">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-4 h-4 bg-blue-500 rounded-sm"></div>
+        <span class="text-sm font-medium text-gray-600">NOTION</span>
+      </div>
+      <div class="grid grid-cols-4 gap-2">
+        <div class="bg-blue-50 p-3 rounded-lg text-center">
+          <div class="text-blue-600 text-sm font-medium">DotOS Notes</div>
+          <div class="text-xs text-gray-500">Marco's Workspace</div>
+        </div>
+        <div class="bg-yellow-50 p-3 rounded-lg text-center">
+          <div class="text-yellow-600 text-sm font-medium">1-on-1 Meeting Notes</div>
+          <div class="text-xs text-gray-500">Marco's Workspace</div>
+        </div>
+        <div class="bg-red-50 p-3 rounded-lg text-center">
+          <div class="text-red-600 text-sm font-medium">Project Timeline</div>
+          <div class="text-xs text-gray-500">Marco's Workspace</div>
+        </div>
+        <div class="bg-green-50 p-3 rounded-lg text-center">
+          <div class="text-green-600 text-sm font-medium">Test</div>
+          <div class="text-xs text-gray-500">Marco's</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 mt-4">
+        <div class="flex -space-x-2">
+          <div class="w-8 h-8 bg-blue-500 rounded-full border-2 border-white"></div>
+          <div class="w-8 h-8 bg-red-500 rounded-full border-2 border-white"></div>
+          <div class="w-8 h-8 bg-purple-500 rounded-full border-2 border-white"></div>
+          <div class="w-8 h-8 bg-yellow-500 rounded-full border-2 border-white"></div>
+          <div class="w-8 h-8 bg-green-500 rounded-full border-2 border-white"></div>
+          <div class="w-8 h-8 bg-orange-500 rounded-full border-2 border-white"></div>
+        </div>
+      </div>
+    </BentoCard>
+
+    <!-- Phone Mockup -->
+    <BentoCard span="span-row-2" class="relative overflow-hidden">
+      <div class="absolute inset-4 bg-black rounded-[2rem] overflow-hidden">
+        <div class="bg-white h-full rounded-[1.8rem] m-1 overflow-hidden">
+          <div class="p-4">
+            <div class="text-xs text-gray-500 mb-2">Delivering to Brooklyn</div>
+            <div class="text-lg font-bold mb-4">Discover</div>
+            <div class="bg-red-500 rounded-lg p-4 text-white">
+              <div class="text-sm">Joe's PIZZA</div>
+              <div class="text-xs opacity-80">Authentic NY Pizza</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </BentoCard>
+
+    <!-- Twitter Card -->
+    <BentoCard padding="sm">
+      <div class="flex items-center gap-2 mb-2">
+        <div class="w-8 h-8 bg-gray-800 rounded-full"></div>
+        <div>
+          <div class="text-sm font-medium">Marco Cornacchia</div>
+          <div class="text-xs text-gray-500">@marcofyi</div>
+        </div>
+        <div class="ml-auto text-blue-400">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+          </svg>
+        </div>
+      </div>
+      <div class="text-sm">cooking up › prev @vercel @v0 @figma @diagramApp</div>
+      <div class="text-xs text-gray-500 mt-2">Read mid tweets ↗</div>
+    </BentoCard>
+
+    <!-- Image Card -->
+    <BentoCard padding="none" class="overflow-hidden">
+      <div class="bg-gradient-to-br from-blue-400 to-blue-600 h-full flex items-center justify-center">
+        <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+          <div class="w-4 h-4 bg-gradient-to-br from-red-400 to-yellow-400 rounded-sm"></div>
+        </div>
+      </div>
+    </BentoCard>
+
+    <!-- Color Palette -->
+    <BentoCard span="span-2">
+      <div class="grid grid-cols-6 gap-1">
+        <div class="h-12 bg-red-100 rounded"></div>
+        <div class="h-12 bg-red-200 rounded"></div>
+        <div class="h-12 bg-red-300 rounded"></div>
+        <div class="h-12 bg-red-400 rounded"></div>
+        <div class="h-12 bg-red-500 rounded"></div>
+        <div class="h-12 bg-red-600 rounded"></div>
+      </div>
+      <div class="grid grid-cols-6 gap-1 mt-1">
+        <div class="h-8 bg-blue-100 rounded text-xs p-1 text-gray-600">Find time for ☕</div>
+        <div class="h-8 bg-blue-200 rounded text-xs p-1 text-gray-600">Find time for 🍕</div>
+        <div class="h-8 bg-blue-300 rounded text-xs p-1 text-gray-600">Find time for 🎯</div>
+        <div class="h-8 bg-blue-400 rounded text-xs p-1 text-white">Find time for 🚀</div>
+        <div class="h-8 bg-blue-500 rounded text-xs p-1 text-white">Find time for ⚡</div>
+        <div class="h-8 bg-blue-600 rounded text-xs p-1 text-white">Find time for 🎨</div>
+      </div>
+    </BentoCard>
+
+    <!-- Additional Project Cards -->
+    <BentoCard padding="sm">
+      <div class="text-lg font-bold mb-2">⌘ V</div>
+      <div class="text-sm text-gray-600">Monday, Nov 21st</div>
+    </BentoCard>
+
+    <BentoCard padding="sm">
+      <div class="text-lg font-bold mb-2">Careers</div>
+      <div class="text-sm text-gray-600">at CommandDot</div>
+    </BentoCard>
+
+    <BentoCard padding="sm">
+      <div class="text-lg font-bold mb-2">Small Moments</div>
+      <div class="text-sm text-gray-600">BIG JOY</div>
+    </BentoCard>
+
+    <BentoCard padding="sm" class="flex items-center justify-center">
+      <div class="w-12 h-12 bg-gray-200 rounded-2xl"></div>
+    </BentoCard>
+  </div>
+</div>
