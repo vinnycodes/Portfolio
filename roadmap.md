@@ -3,8 +3,8 @@
 This document defines the planned work from governance through launch for the Portfolio v3 rebuild (Astro + Payload + DigitalOcean + Docker).
 
 ## Phase 0 — Governance
-- Add `agents.md` with workflow + AI usage rules.
-- Add `decisions/` with ADRs for architecture, design, hosting, content model, deploy.
+- Add `docs/agents.md` with workflow + AI usage rules.
+- Add `docs/decisions/` with ADRs for architecture, design, hosting, content model, deploy.
 
 ## Phase 1 — Design-First (Static Slice)
 - Define design tokens (type scale, color system, spacing, radii, shadows, motion).
@@ -39,7 +39,8 @@ This document defines the planned work from governance through launch for the Po
 - Final QA: accessibility, SEO, performance.
 - Launch.
 
-## Future Enhancements
+## Future Features
 - Tags and search for Notes.
+- AI/embeddings pipeline for semantic search and content assistance.
 - Full projects index + case study templates.
 - Analytics and performance monitoring.
