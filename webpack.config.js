@@ -8,9 +8,11 @@ module.exports = {
     filename: 'js/bundle.js',
   },
   devServer: {
-    contentBase: './dist',
-    watchContentBase: true,
-    hotOnly: true,
+    static: {
+      directory: path.resolve(__dirname, 'dist'),
+      watch: true,
+    },
+    hot: 'only',
   },
   plugins: [
     new HtmlWebpackPlugin({
