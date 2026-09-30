@@ -3,8 +3,9 @@ node_modules/
 pnpm-lock.yaml
 
 # Build outputs
-dist/
-.astro/
+**/dist/
+**/.astro/
+.turbo/
 
 # Environment files
 .env
@@ -17,9 +18,11 @@ dist/
 coverage/
 
 # Generated files
-public/
 *.min.js
 *.min.css
+
+# Local design references
+Vinnycodes_bento_grid_redesign/
 
 # Images and assets
 *.png

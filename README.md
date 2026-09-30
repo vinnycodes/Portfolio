@@ -1,48 +1,33 @@
-# Astro Starter Kit: Basics
+# Portfolio
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+Portfolio v3 is an Astro monorepo managed with pnpm and Turborepo. The implementation starts from a minimal static foundation; integrations are added only when a concrete feature requires them.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Requirements
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- Node.js 24
+- pnpm 12.6.0
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Workspace
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+apps/
+└── web/    # Astro site
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+Sanity Studio will be added under `apps/studio` during the content-platform phase.
 
-## 🧞 Commands
+## Commands
 
-All commands are run from the root of the project, from a terminal:
+Run commands from the repository root:
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `pnpm install`         | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+| Command             | Purpose                                  |
+| ------------------- | ---------------------------------------- |
+| `pnpm install`      | Install workspace dependencies           |
+| `pnpm dev`          | Start persistent development tasks       |
+| `pnpm build`        | Build all applications                   |
+| `pnpm check`        | Run workspace type and framework checks  |
+| `pnpm preview`      | Preview the production web build         |
+| `pnpm format`       | Format tracked source and documentation  |
+| `pnpm format:check` | Check formatting without modifying files |
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Architecture decisions live in `docs/decisions/`. The staged rebuild plan lives in `docs/plans/portfolio-v3-execution-plan.md`.

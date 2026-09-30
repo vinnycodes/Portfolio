@@ -1,11 +1,14 @@
 # build output
-dist/
+**/dist/
+.turbo/
+.vercel/
 
 # generated types
-.astro/
+**/.astro/
 
 # dependencies
-node_modules/
+**/node_modules/
+*.tsbuildinfo
 
 # logs
 npm-debug.log*
@@ -15,7 +18,11 @@ pnpm-debug.log*
 
 # environment variables
 .env
-.env.production
+.env.*
+!.env.example
+
+# local design references
+Vinnycodes_bento_grid_redesign/
 
 # macOS-specific files
 .DS_Store

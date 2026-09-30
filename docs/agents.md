@@ -45,7 +45,7 @@ What we chose and why.
 What changes as a result — both positive and negative.
 ```
 
-Prefer descriptive commit messages and notes that explain *why*, not just *what*, to improve future agent context.
+Prefer descriptive commit messages and notes that explain _why_, not just _what_, to improve future agent context.
 
 ---
 
@@ -60,19 +60,19 @@ Always leave the codebase slightly better than found: if you touch legacy code, 
 Run `pnpm format` once at the end of your task, after all code changes are complete. Aggregate formatting fixes rather than running after each individual edit to reduce noise and maintain focus on logic changes.
 
 Available scripts:
+
 - `pnpm format` — auto-fix formatting (Prettier)
 - `pnpm format:check` — check without modifying (used in CI)
-- `pnpm lint` — run ESLint
-- `pnpm lint:fix` — auto-fix lint issues
-- `pnpm test` — run vitest
+- `pnpm check` — run framework and type checks across workspaces
+- `pnpm build` — build all workspaces
 
 ### Testing
 
-All new React components must include at least one test in `src/test/`. Astro pages and layouts are tested via build verification. If you modify an existing component, check whether its tests still pass and update them if behavior changed.
+Add tests with the first behavior that benefits from automated coverage. Astro pages and layouts are validated through framework checks and production builds until a dedicated test layer is justified. When modifying tested behavior, update its tests in the same change.
 
 ### TypeScript
 
-All new code must be typed. No `any` unless explicitly justified in a comment. Shared types live in `src/types/`.
+All new code must be typed. No `any` unless explicitly justified in a comment. Web types live in `apps/web/src/types/`; generated Sanity types live with the application that generates them unless they become genuinely shared.
 
 ---
 
@@ -80,22 +80,24 @@ All new code must be typed. No `any` unless explicitly justified in a comment. S
 
 ### File Structure
 
-- **Astro pages** → `src/pages/`
-- **Astro components** → `src/components/*.astro`
-- **React islands** → `src/components/*.tsx`
-- **Shared types** → `src/types/`
-- **Data / content config** → `src/data/`
-- **Styles** → `src/styles/` (SCSS + Tailwind)
-- **Tests** → `src/test/`
-- **Governance docs** → `docs/` (ADRs, agent log)
+- **Astro application** -> `apps/web/`
+- **Astro pages** -> `apps/web/src/pages/`
+- **Astro components** -> `apps/web/src/components/*.astro`
+- **Interactive islands** -> colocated with the web component that owns the behavior
+- **Web types** -> `apps/web/src/types/`
+- **Data and content config** -> `apps/web/src/data/`
+- **Styles** -> `apps/web/src/styles/`
+- **Web tests** -> colocated or under `apps/web/src/test/` when introduced
+- **Sanity Studio** -> `apps/studio/` when introduced
+- **Governance docs** -> `docs/`
 
 ### Styling
 
-Use Tailwind utility classes as the default. Extract to SCSS only when Tailwind cannot express the pattern (complex animations, pseudo-element tricks, deeply nested selectors). Never mix inline `style` attributes with Tailwind classes on the same element.
+Use modern CSS, custom properties, and cascade layers as the default styling system. Add preprocessors or utility frameworks only when a concrete limitation justifies the dependency. Reserve inline styles for genuinely dynamic values that cannot be represented by classes or CSS custom properties.
 
-### React Islands
+### Interactive Islands
 
-React components are used as Astro islands (`client:load`, `client:visible`, etc.) for interactive features. Keep islands small and focused — heavy lifting (data fetching, routing) stays in Astro.
+Prefer Astro and browser APIs. When a feature justifies a client framework, keep hydrated islands small and focused. Data fetching, routing, and static rendering remain in Astro unless a documented decision changes that boundary.
 
 ---
 
@@ -118,11 +120,10 @@ Use the conventional commits format:
 **Examples:**
 
 ```
-feat(chat): add iMessage-style chat bubble component with typing indicator
+feat(profile): add social links card
 
-Implements the core message bubble layout with sender/receiver alignment,
-timestamp display, and an animated typing indicator using Framer Motion.
-Bubbles support both text and rich content blocks for future extensibility.
+Introduces the first content-backed card while preserving static rendering and
+keyboard navigation.
 
 fix(workspace): prevent tab reset when re-selecting the active app
 
@@ -130,13 +131,13 @@ The InteractiveWorkspace component was resetting selectedTab to 1 on every
 app click, even when the same app was already selected. Added an early
 return guard to preserve tab state during redundant selections.
 
-docs(decisions): record Payload over Sanity migration rationale
+docs(decisions): record Sanity content architecture
 ```
 
 ### Rules
 
 - **Never reference AI tools, models, or agents in commits, PRs, or code comments.** No "Generated by Claude," "Copilot suggestion," "AI-assisted," or similar. The commit history should read as if a human wrote every line — because a human reviewed and approved every line.
-- **Commit messages must explain the reasoning**, not just describe the diff. A reviewer reading only the commit log should understand *why* each change was made.
+- **Commit messages must explain the reasoning**, not just describe the diff. A reviewer reading only the commit log should understand _why_ each change was made.
 - **One logical change per commit.** Don't bundle unrelated fixes. If formatting changes accompany a feature, they get their own commit (`style(workspace): format with prettier`).
 - **PR descriptions** (when used) should include: what changed, why, how to test, and any follow-up work.
 
