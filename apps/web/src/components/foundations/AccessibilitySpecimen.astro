@@ -1,0 +1,125 @@
+<section class="accessibility-specimen">
+  <header>
+    <p>Accessibility</p>
+    <h2>Access is a release criterion.</h2>
+    <span>
+      Semantics, contrast, focus, target size, and motion preferences are part
+      of every component contract.
+    </span>
+  </header>
+
+  <ul>
+    <li>
+      <strong>Keyboard</strong>
+      <span>Every action has a visible focus state.</span>
+    </li>
+    <li>
+      <strong>Semantics</strong>
+      <span>Buttons act; links navigate.</span>
+    </li>
+    <li>
+      <strong>Contrast</strong>
+      <span>Text and controls meet WCAG AA.</span>
+    </li>
+    <li>
+      <strong>Targets</strong>
+      <span>Primary controls provide 44px target height.</span>
+    </li>
+    <li>
+      <strong>Motion</strong>
+      <span>Reduced-motion preferences are respected.</span>
+    </li>
+    <li>
+      <strong>Testing</strong>
+      <span>Axe violations fail browser tests.</span>
+    </li>
+  </ul>
+
+  <div class="focus-demo">
+    <span>Press Tab to inspect the focus contract</span>
+    <a href="#accessibility-example">Focusable example</a>
+  </div>
+</section>
+
+<style>
+  .accessibility-specimen {
+    width: min(100%, 64rem);
+    padding: clamp(var(--space-5), 4vw, var(--space-10));
+    color: var(--color-text);
+  }
+
+  header {
+    max-width: 44rem;
+    margin-bottom: var(--space-8);
+  }
+
+  header > p {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-caption);
+    font-weight: 700;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin-top: var(--space-2);
+    font-size: var(--font-size-heading-md);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--line-height-heading);
+  }
+
+  header > span {
+    display: block;
+    margin-top: var(--space-3);
+    color: var(--color-text-muted);
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: var(--space-3);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  li,
+  .focus-demo {
+    display: grid;
+    gap: var(--space-1);
+    padding: var(--space-5);
+    border: var(--border-thin) solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+  }
+
+  li span,
+  .focus-demo > span {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-label);
+  }
+
+  .focus-demo {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    margin-top: var(--space-3);
+  }
+
+  .focus-demo a {
+    min-height: var(--control-height-md);
+    padding: 0 var(--space-5);
+    border-radius: var(--radius-pill);
+    background: var(--color-action);
+    color: var(--color-action-text);
+    font-size: var(--font-size-label);
+    font-weight: 700;
+    line-height: var(--control-height-md);
+    text-decoration: none;
+  }
+
+  @media (max-width: 39.99rem) {
+    .focus-demo {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,121 @@
+<section class="motion-specimen">
+  <header>
+    <p>Motion</p>
+    <h2>Movement explains change.</h2>
+    <span>
+      Motion is restrained, interruptible, and never required for comprehension.
+    </span>
+  </header>
+
+  <div class="motion-grid">
+    <article>
+      <div class="motion-dot motion-dot--fast"></div>
+      <h3>Fast · 180ms</h3>
+      <p>Hover and press feedback.</p>
+    </article>
+    <article>
+      <div class="motion-dot motion-dot--moderate"></div>
+      <h3>Moderate · 320ms</h3>
+      <p>State and layout transitions.</p>
+    </article>
+    <article>
+      <div class="motion-dot motion-dot--slow"></div>
+      <h3>Slow · 600ms</h3>
+      <p>Ambient entrances only.</p>
+    </article>
+  </div>
+
+  <aside>
+    <strong>Reduced motion</strong>
+    <span>Animations collapse to an effectively instant state.</span>
+  </aside>
+</section>
+
+<style>
+  .motion-specimen {
+    width: min(100%, 64rem);
+    padding: clamp(var(--space-5), 4vw, var(--space-10));
+    color: var(--color-text);
+  }
+
+  header {
+    max-width: 44rem;
+    margin-bottom: var(--space-8);
+  }
+
+  header > p {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-caption);
+    font-weight: 700;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin-top: var(--space-2);
+    font-size: var(--font-size-heading-md);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--line-height-heading);
+  }
+
+  header > span {
+    display: block;
+    margin-top: var(--space-3);
+    color: var(--color-text-muted);
+  }
+
+  .motion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: var(--space-3);
+  }
+
+  article,
+  aside {
+    padding: var(--space-5);
+    border: var(--border-thin) solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+  }
+
+  .motion-dot {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: var(--space-10);
+    border-radius: 50%;
+    background: var(--color-focus);
+    animation: travel var(--duration-moderate) var(--ease-expressive) infinite
+      alternate;
+  }
+
+  .motion-dot--fast {
+    animation-duration: var(--duration-fast);
+  }
+
+  .motion-dot--slow {
+    animation-duration: var(--duration-slow);
+  }
+
+  h3 {
+    margin: 0;
+    font-size: var(--font-size-body);
+  }
+
+  article p,
+  aside span {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-label);
+  }
+
+  aside {
+    display: grid;
+    gap: var(--space-1);
+    margin-top: var(--space-3);
+  }
+
+  @keyframes travel {
+    to {
+      translate: calc(100% + var(--space-8));
+    }
+  }
+</style>

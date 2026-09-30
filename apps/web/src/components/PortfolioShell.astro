@@ -1,0 +1,154 @@
+---
+import AmbientBackground from './AmbientBackground.astro';
+import BentoCard from './BentoCard.astro';
+import BentoGrid from './BentoGrid.astro';
+import SiteHeader from './SiteHeader.astro';
+import ActionLink from './actions/ActionLink.astro';
+import TextLink from './actions/TextLink.astro';
+---
+
+<AmbientBackground />
+<div class="portfolio-shell">
+  <SiteHeader />
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <p>Frontend engineer · Portfolio v3</p>
+      <h1 id="hero-title">
+        I build interfaces that make complex ideas feel clear.
+      </h1>
+      <span>
+        A new collection of product work, experiments, and lessons is taking
+        shape here.
+      </span>
+    </section>
+
+    <BentoGrid>
+      <BentoCard
+        id="about"
+        eyebrow="About"
+        title="Engineering with a designer's eye."
+        description="I care about the system beneath the screen: semantics, performance, accessibility, and the small decisions that make software feel considered."
+        tone="blue"
+        span="wide"
+      >
+        <p>
+          Portfolio v3 is being built in public as a focused Astro system, one
+          well-documented primitive at a time.
+        </p>
+      </BentoCard>
+
+      <BentoCard
+        eyebrow="Now"
+        title="Building the foundation"
+        description="Tokens, components, browser tests, and a responsive shell before content expansion."
+        tone="cool"
+      />
+
+      <BentoCard
+        eyebrow="Principle"
+        title="Clarity over ceremony"
+        description="The smallest robust solution wins. Complexity has to earn its place."
+      />
+
+      <BentoCard
+        id="work"
+        eyebrow="Selected work"
+        title="Case studies are next."
+        description="The new project archive will explain decisions, constraints, and outcomes instead of presenting a wall of screenshots."
+        tone="warm"
+        span="wide"
+      >
+        <TextLink href="#contact">Follow the rebuild</TextLink>
+      </BentoCard>
+
+      <BentoCard
+        id="contact"
+        eyebrow="Contact"
+        title="Have an ambitious interface to build?"
+        description="Start with the problem. We can work out the pixels from there."
+        span="wide"
+      >
+        <div slot="footer">
+          <ActionLink href="mailto:vincenyamu@gmail.com" size="large">
+            Start a conversation
+          </ActionLink>
+        </div>
+      </BentoCard>
+    </BentoGrid>
+  </main>
+
+  <footer class="site-footer">
+    <span>Vinny Codes · Portfolio v3</span>
+    <a href="mailto:vincenyamu@gmail.com">vincenyamu@gmail.com</a>
+  </footer>
+</div>
+
+<style>
+  .portfolio-shell {
+    position: relative;
+    z-index: 1;
+  }
+
+  main,
+  .site-footer {
+    width: min(
+      calc(100% - (2 * var(--layout-gutter))),
+      var(--layout-max-width)
+    );
+    margin-inline: auto;
+  }
+
+  main {
+    padding-block: clamp(var(--space-12), 8vw, var(--space-24));
+  }
+
+  .hero {
+    max-width: 70rem;
+    margin-bottom: clamp(var(--space-12), 8vw, var(--space-20));
+  }
+
+  .hero p {
+    margin-bottom: var(--space-4);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-caption);
+    font-weight: 700;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    max-width: 12ch;
+    font-size: var(--font-size-display);
+    font-weight: 650;
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--line-height-tight);
+    text-wrap: balance;
+  }
+
+  .hero > span {
+    display: block;
+    max-width: 38rem;
+    margin-top: var(--space-6);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-body-lg);
+  }
+
+  :global(.bento-card p) {
+    margin: 0;
+  }
+
+  .site-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-6);
+    justify-content: space-between;
+    padding-block: var(--space-8) var(--space-12);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-label);
+  }
+
+  .site-footer a {
+    text-underline-offset: 0.2em;
+  }
+</style>

@@ -1,0 +1,30 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends Omit<HTMLAttributes<'button'>, 'class'> {
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'small' | 'medium' | 'large';
+  class?: string;
+}
+
+const {
+  variant = 'primary',
+  size = 'medium',
+  class: className,
+  type = 'button',
+  ...attributes
+} = Astro.props;
+---
+
+<button
+  {...attributes}
+  type={type}
+  class:list={[
+    'action-control',
+    `action-control--${variant}`,
+    `action-control--${size}`,
+    className,
+  ]}
+>
+  <slot />
+</button>

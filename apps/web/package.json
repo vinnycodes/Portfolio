@@ -7,6 +7,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "check": "astro check",
+    "lint": "eslint .",
+    "test": "vitest --config vitest.storybook.config.ts --run",
+    "storybook": "storybook dev --port 6006",
+    "storybook:build": "storybook build --output-dir storybook-static",
     "preview": "astro preview"
   },
   "dependencies": {
@@ -14,6 +18,18 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
-    "typescript": "6.0.3"
+    "@storybook-astro/framework": "1.12.0",
+    "@storybook/addon-a11y": "10.6.1",
+    "@storybook/addon-docs": "10.6.1",
+    "@storybook/addon-themes": "10.6.1",
+    "@storybook/addon-vitest": "10.6.1",
+    "@storybook/builder-vite": "10.6.1",
+    "@vitest/browser": "4.1.0",
+    "@vitest/browser-playwright": "4.1.0",
+    "@vitest/runner": "4.1.0",
+    "playwright": "1.63.0",
+    "storybook": "10.6.1",
+    "typescript": "6.0.3",
+    "vitest": "4.1.0"
   }
 }

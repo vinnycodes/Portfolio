@@ -1,0 +1,20 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Layout/Document Shell" />
+
+# Document shell
+
+`BaseLayout.astro` owns the production HTML document rather than a visual
+surface that can be nested inside Storybook's iframe.
+
+## Contract
+
+- Declares English document language and responsive viewport metadata.
+- Applies the dark theme before first paint.
+- Loads the canonical global stylesheet once.
+- Preloads the self-hosted Figtree Latin variable font.
+- Requires a unique page title and description.
+- Keeps component and page content in the default slot.
+
+The complete rendered result is exercised by the **Patterns / Portfolio Shell**
+stories and the production Astro build.

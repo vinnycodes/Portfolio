@@ -17,6 +17,8 @@ Use the following design direction:
 - Figtree as the self-hosted primary typeface.
 - Explicit tokens for color, typography, spacing, radii, shadows, and motion.
 - Modern CSS, custom properties, and cascade layers as the initial styling system.
+- Storybook as the executable design-system workspace for foundations, production primitives, responsive states, and accessibility contracts.
+- Browser-backed Storybook tests in both themes, with automated accessibility violations treated as failures.
 - Additional styling or UI dependencies only when the implementation demonstrates a concrete need.
 - Responsive layouts designed for mobile and desktop rather than scaled from one fixed canvas.
 - Restrained interaction feedback with reduced-motion alternatives.
@@ -32,9 +34,11 @@ Interactive elements must use semantic controls, visible focus states, keyboard 
 - The implementation preserves the reference's visual identity without depending on generated code.
 - Central tokens make visual changes deliberate and consistent.
 - Accessibility and responsive behavior are design requirements rather than cleanup tasks.
+- Component documentation and production rendering consume the same Astro components and CSS tokens.
 
 ### Negative
 
 - Recreating the reference faithfully takes longer than embedding or copying its output.
 - Complex interactions may eventually justify a client UI integration, but that decision is deferred until the interaction exists.
 - Motion and layered effects require performance testing on lower-powered devices.
+- The Astro Storybook integration is community maintained and must be upgraded or replaced if it stops supporting the active Astro and Storybook majors, static builds, or browser story tests.

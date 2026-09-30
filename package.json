@@ -2,6 +2,7 @@
   "name": "portfolio",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "packageManager": "pnpm@12.6.0",
   "engines": {
     "node": "24.x"
@@ -10,13 +11,24 @@
     "dev": "turbo run dev",
     "build": "turbo run build",
     "check": "turbo run check",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "storybook": "pnpm --filter @portfolio/web storybook",
+    "storybook:build": "turbo run storybook:build",
     "preview": "pnpm --filter @portfolio/web preview",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
   "devDependencies": {
+    "@eslint/js": "9.39.5",
+    "eslint": "9.39.5",
+    "eslint-plugin-astro": "1.6.0",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-storybook": "10.6.1",
+    "globals": "17.12.0",
     "prettier": "3.9.9",
     "prettier-plugin-astro": "1.1.0",
-    "turbo": "2.11.5"
+    "turbo": "2.11.5",
+    "typescript-eslint": "8.71.0"
   }
 }

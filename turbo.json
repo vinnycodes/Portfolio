@@ -12,6 +12,18 @@
     "check": {
       "dependsOn": ["^check"],
       "outputs": []
+    },
+    "lint": {
+      "dependsOn": ["^lint"],
+      "outputs": []
+    },
+    "test": {
+      "dependsOn": ["^test"],
+      "outputs": []
+    },
+    "storybook:build": {
+      "dependsOn": ["^storybook:build"],
+      "outputs": ["storybook-static/**"]
     }
   }
 }

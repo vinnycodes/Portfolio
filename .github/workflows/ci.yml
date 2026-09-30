@@ -17,7 +17,7 @@ jobs:
   quality:
     name: Quality
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: Check out repository
@@ -38,8 +38,20 @@ jobs:
       - name: Check formatting
         run: pnpm format:check
 
+      - name: Lint source
+        run: pnpm lint
+
       - name: Check application
         run: pnpm check
 
+      - name: Install Chromium
+        run: pnpm --filter @portfolio/web exec playwright install --with-deps chromium
+
+      - name: Test component stories
+        run: pnpm test
+
       - name: Build application
         run: pnpm build
+
+      - name: Build design system
+        run: pnpm storybook:build

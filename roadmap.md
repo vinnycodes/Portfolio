@@ -10,6 +10,8 @@ This roadmap tracks the Astro, Sanity, and Vercel rebuild from foundation throug
 
 ## Phase 1: Monorepo Foundation
 
+**Status:** Complete (2026-09-30)
+
 - Create the pnpm and Turborepo workspace.
 - Create a fresh Astro 7 application in `apps/web` and discard the legacy implementation.
 - Pin Node and pnpm versions and establish root commands.
@@ -18,17 +20,23 @@ This roadmap tracks the Astro, Sanity, and Vercel rebuild from foundation throug
 
 ## Phase 2: Quality Baseline
 
+**Status:** Complete (2026-09-30)
+
 - Add workspace formatting, typechecking, and build commands.
 - Add linting and tests with the first code that benefits from them.
 - Add GitHub Actions for pull requests and branch pushes.
 - Ensure all quality checks run from a clean, frozen install.
+- Treat Storybook accessibility violations and failed interaction tests as CI failures.
 
 ## Phase 3: Design Foundation
+
+**Status:** Complete (2026-09-30)
 
 - Use `docs/design/v3-reference.md` as the visual source of truth.
 - Self-host approved Figtree files and define the design tokens.
 - Establish CSS layers and build the responsive shell, navigation, ambient background, and base card primitive.
 - Implement accessible focus and reduced-motion behavior with the initial components.
+- Maintain granular Storybook documentation for foundations, actions, navigation, surfaces, layouts, and composed patterns.
 
 ## Phase 4: Sanity Foundation
 
@@ -62,6 +70,8 @@ This roadmap tracks the Astro, Sanity, and Vercel rebuild from foundation throug
 - Complete metadata, canonical URLs, sitemap, robots directives, and social previews.
 
 ## Phase 8: Vercel Delivery
+
+**Status:** In progress
 
 - Connect `apps/web` to Vercel.
 - Keep `master` as production and use `v3` and pull requests for previews.

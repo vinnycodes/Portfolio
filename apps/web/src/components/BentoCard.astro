@@ -1,0 +1,145 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  tone?: 'neutral' | 'blue' | 'warm' | 'cool';
+  span?: 'default' | 'wide' | 'tall';
+  id?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  tone = 'neutral',
+  span = 'default',
+  id,
+} = Astro.props;
+---
+
+<article
+  id={id}
+  class:list={['bento-card', `bento-card--${tone}`, `bento-card--${span}`]}
+>
+  {Astro.slots.has('media') && (
+    <div class="bento-card__media">
+      <slot name="media" />
+    </div>
+  )}
+  <header>
+    {eyebrow && <p>{eyebrow}</p>}
+    <h2>{title}</h2>
+    {description && <span>{description}</span>}
+  </header>
+  {Astro.slots.has('default') && (
+    <div class="bento-card__body">
+      <slot />
+    </div>
+  )}
+  {Astro.slots.has('footer') && (
+    <footer>
+      <slot name="footer" />
+    </footer>
+  )}
+</article>
+
+<style>
+  .bento-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: var(--card-min-height);
+    padding: clamp(var(--space-6), 4vw, var(--space-8));
+    overflow: hidden;
+    border: var(--border-thin) solid var(--color-border);
+    border-radius: var(--radius-card);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-card);
+    isolation: isolate;
+  }
+
+  @supports (backdrop-filter: blur(1rem)) {
+    .bento-card {
+      backdrop-filter: blur(1.25rem) saturate(120%);
+    }
+  }
+
+  .bento-card::before {
+    position: absolute;
+    z-index: -1;
+    width: 13rem;
+    height: 13rem;
+    border-radius: 50%;
+    background: var(--card-accent, transparent);
+    content: '';
+    filter: blur(70px);
+    opacity: 0.32;
+    pointer-events: none;
+    right: -5rem;
+    top: -5rem;
+  }
+
+  .bento-card--blue {
+    --card-accent: var(--color-ambient-blue);
+  }
+
+  .bento-card--warm {
+    --card-accent: var(--color-ambient-warm);
+  }
+
+  .bento-card--cool {
+    --card-accent: var(--color-ambient-cool);
+  }
+
+  header {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  header p {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-caption);
+    font-weight: 700;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+
+  h2 {
+    max-width: 18ch;
+    font-size: var(--font-size-heading-sm);
+    letter-spacing: -0.035em;
+    line-height: var(--line-height-heading);
+  }
+
+  header span,
+  .bento-card__body {
+    max-width: 58ch;
+    color: var(--color-text-muted);
+  }
+
+  .bento-card__media {
+    margin: calc(var(--space-8) * -1) calc(var(--space-8) * -1) var(--space-6);
+  }
+
+  .bento-card__body {
+    margin-top: var(--space-5);
+  }
+
+  footer {
+    margin-top: auto;
+    padding-top: var(--space-8);
+  }
+
+  @media (min-width: 40rem) {
+    .bento-card--wide {
+      grid-column: span 2;
+    }
+
+    .bento-card--tall {
+      grid-row: span 2;
+      min-height: calc(var(--card-min-height) * 2 + var(--grid-gap));
+    }
+  }
+</style>

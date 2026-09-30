@@ -4,6 +4,27 @@ Running log of decisions, learnings, and pitfalls encountered during development
 
 ---
 
+## 2026-09-30 - Storybook Design Foundation
+
+**What:** Implemented the responsive Astro shell, self-hosted Figtree, design tokens, semantic primitives, granular Storybook catalog, ESLint, and browser-backed accessibility tests.
+
+**Decisions made:**
+
+- Storybook renders production Astro components and consumes the production CSS token source rather than maintaining a parallel component library.
+- The initial catalog is deep but use-driven: foundations, actions, navigation, bento surfaces, responsive layout, and the complete portfolio shell are included; speculative product UI is deferred.
+- Buttons, button-styled links, text links, and icon buttons remain separate to preserve native semantics.
+- All 47 component stories run in Chromium under both light and dark themes, producing 94 browser cases with Axe failures configured as test failures.
+- The community Astro adapter is retained only while it supports current framework majors, static builds, slots, and browser tests.
+- Vercel builds from the repository root and publishes `apps/web/dist` through tracked configuration.
+
+**Learnings:**
+
+- Storybook's Astro adapter requires `@storybook/builder-vite` explicitly and does not currently re-export the standard `Meta` and `StoryObj` aliases, so the project provides a small typed bridge over Storybook's internal annotation types.
+- Generated `storybook-static` output must be excluded from Astro diagnostics; otherwise local checks inspect bundled addon JavaScript and can exhaust the TypeScript process heap.
+- Browser accessibility tests caught an inaccessible compact wordmark, while screenshot review caught a cascade-layer ordering bug that made primary-action text visually disappear. Both testing modes are necessary.
+
+**Pitfalls:** Astro component client scripts used by the adapter must avoid TypeScript-only syntax in the emitted browser block. TypeScript generics and assertions reached the browser untransformed during story tests. The current adapter also leaves Vite and Rolldown handles open long enough for Vitest to print a non-fatal teardown warning, and its successful static build prints a non-fatal internal transport warning; the generated catalog was served and smoke-tested independently to verify both are cleanup noise rather than broken output.
+
 ## 2026-09-30 - CI Quality Baseline
 
 **What:** Added the first GitHub Actions workflow for frozen installation, formatting, Astro diagnostics, and production builds.

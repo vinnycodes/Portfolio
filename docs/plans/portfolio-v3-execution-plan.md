@@ -34,6 +34,8 @@ Build Portfolio v3 from a clean Astro foundation in a pnpm and Turborepo monorep
 
 ## Phase 1: Clean Foundation
 
+**Status:** Complete (2026-09-30)
+
 1. Remove the legacy application and dependency graph.
 2. Create a fresh Astro 7 application under `apps/web`.
 3. Pin Node 24 and pnpm 12.6.0.
@@ -50,9 +52,11 @@ Build Portfolio v3 from a clean Astro foundation in a pnpm and Turborepo monorep
 
 ## Phase 2: Quality Baseline
 
-1. Add GitHub Actions for frozen installation, formatting, Astro checks, and production builds.
-2. Add linting when project code extends beyond the minimal scaffold.
-3. Add automated tests with the first meaningful interactive behavior.
+**Status:** Complete (2026-09-30)
+
+1. Add GitHub Actions for frozen installation, formatting, linting, Astro checks, browser story tests, and production builds.
+2. Lint Astro templates, TypeScript, and Storybook authoring.
+3. Test every component story in Chromium under light and dark themes, with accessibility violations treated as failures.
 4. Keep quality commands workspace-aware and runnable from the root.
 
 ### Completion Criteria
@@ -62,17 +66,21 @@ Build Portfolio v3 from a clean Astro foundation in a pnpm and Turborepo monorep
 
 ## Phase 3: Design Foundation
 
+**Status:** Complete (2026-09-30)
+
 1. Use `docs/design/v3-reference.md` as the visual source of truth.
 2. Self-host approved Figtree files and define typography, color, spacing, radius, shadow, and motion tokens.
 3. Establish CSS layers for reset, tokens, global rules, components, and utilities.
 4. Build the responsive shell, navigation, ambient background, and base card primitive.
 5. Implement reduced-motion behavior alongside motion, not afterward.
+6. Use Storybook as the executable catalog for foundations, production primitives, responsive states, and composed patterns.
 
 ### Completion Criteria
 
 - Tokens and base components reproduce the approved visual language without generated code.
 - Mobile and desktop shells are accessible and stable.
 - No styling dependency has been added without an implemented need.
+- Storybook builds statically and all stories pass browser and accessibility checks in both themes.
 
 ## Phase 4: Sanity Foundation
 
@@ -138,6 +146,8 @@ Commit example environment files, never credentials.
 4. Complete metadata, canonical URLs, sitemap, robots directives, and social previews.
 
 ## Phase 8: Vercel Delivery
+
+**Status:** In progress
 
 1. Connect `apps/web` to Vercel.
 2. Keep `master` as production and enable previews for `v3` and pull requests.

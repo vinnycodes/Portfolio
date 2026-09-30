@@ -1,0 +1,30 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Welcome" />
+
+# Vinny Codes Design System
+
+This Storybook is the executable specification for Portfolio v3. It documents
+the exact tokens, semantics, responsive behavior, motion, and accessibility
+contracts used by the production Astro site.
+
+## Principles
+
+1. **Distinctive, not decorative.** Visual decisions must strengthen hierarchy or meaning.
+2. **Semantics before styling.** Buttons perform actions; links navigate.
+3. **Responsive by composition.** Components reflow intentionally rather than shrinking blindly.
+4. **Accessible by default.** Keyboard support, focus visibility, contrast, and motion preferences are release criteria.
+5. **Use-driven breadth.** The system grows from portfolio needs instead of speculative components.
+
+## Story Contract
+
+Every production primitive includes purpose, variants, states, responsive
+examples, accessibility guidance, and browser-backed smoke coverage. Use the
+theme toolbar to inspect both supported color schemes and the viewport toolbar
+to inspect the 375px, 768px, and 1440px reference widths.
+
+## Support Boundary
+
+Astro is the production rendering boundary. Storybook's Astro integration is
+community maintained and remains acceptable while it supports the current
+Astro and Storybook majors, static builds, and browser story tests.

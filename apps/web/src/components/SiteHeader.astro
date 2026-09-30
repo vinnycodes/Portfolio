@@ -1,0 +1,108 @@
+---
+import ActionLink from './actions/ActionLink.astro';
+import Wordmark from './Wordmark.astro';
+
+interface NavigationItem {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  navigation?: NavigationItem[];
+  contactHref?: string;
+}
+
+const {
+  navigation = [
+    { label: 'About', href: '#about' },
+    { label: 'Work', href: '#work' },
+    { label: 'Contact', href: '#contact' },
+  ],
+  contactHref = 'mailto:vincenyamu@gmail.com',
+} = Astro.props;
+---
+
+<header class="site-header">
+  <Wordmark />
+  <nav aria-label="Primary navigation">
+    <ul>
+      {navigation.map(({ label, href }) => (
+        <li>
+          <a href={href}>{label}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+  <ActionLink href={contactHref} variant="secondary" size="small">
+    Say hello
+  </ActionLink>
+</header>
+
+<style>
+  .site-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-3);
+    align-items: center;
+    width: min(
+      calc(100% - (2 * var(--layout-gutter))),
+      var(--layout-max-width)
+    );
+    min-height: 5rem;
+    margin-inline: auto;
+    padding-block: var(--space-4);
+  }
+
+  nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    overflow-x: auto;
+  }
+
+  ul {
+    display: flex;
+    gap: var(--space-1);
+    width: max-content;
+    padding: var(--space-1);
+    margin: 0;
+    border: var(--border-thin) solid var(--color-border);
+    border-radius: var(--radius-pill);
+    background: var(--color-surface);
+    list-style: none;
+  }
+
+  nav a {
+    display: grid;
+    place-items: center;
+    min-height: var(--control-height-sm);
+    padding-inline: var(--space-4);
+    border-radius: var(--radius-pill);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-label);
+    font-weight: 650;
+    text-decoration: none;
+    transition:
+      color var(--duration-fast) var(--ease-standard),
+      background-color var(--duration-fast) var(--ease-standard);
+  }
+
+  nav a:hover {
+    background: var(--color-action-muted-hover);
+    color: var(--color-text);
+  }
+
+  @media (min-width: 48rem) {
+    .site-header {
+      grid-template-columns: 1fr auto 1fr;
+    }
+
+    nav {
+      grid-column: auto;
+      grid-row: auto;
+    }
+
+    .site-header > :global(.action-control) {
+      justify-self: end;
+    }
+  }
+</style>

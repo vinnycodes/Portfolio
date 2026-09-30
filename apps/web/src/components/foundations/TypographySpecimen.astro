@@ -1,0 +1,120 @@
+<section class="type-specimen">
+  <header>
+    <p class="eyebrow">Typography</p>
+    <h2>Figtree, with purpose.</h2>
+    <p>
+      One variable Latin font file covers weights 400 through 700. Tight display
+      type creates character; body text prioritizes sustained reading.
+    </p>
+  </header>
+
+  <dl>
+    <div class="sample sample--display">
+      <dt>Display · 700</dt>
+      <dd>Build what matters.</dd>
+    </div>
+    <div class="sample sample--heading">
+      <dt>Heading · 600</dt>
+      <dd>Interfaces with intent</dd>
+    </div>
+    <div class="sample sample--body-large">
+      <dt>Body large · 400</dt>
+      <dd>Thoughtful systems make ambitious products feel simple.</dd>
+    </div>
+    <div class="sample sample--body">
+      <dt>Body · 400</dt>
+      <dd>
+        Figtree stays open and readable at working sizes while retaining enough
+        personality for a portfolio.
+      </dd>
+    </div>
+    <div class="sample sample--label">
+      <dt>Label · 700</dt>
+      <dd>Selected work · 2026</dd>
+    </div>
+  </dl>
+</section>
+
+<style>
+  .type-specimen {
+    width: min(100%, 70rem);
+    padding: clamp(var(--space-5), 4vw, var(--space-10));
+    color: var(--color-text);
+  }
+
+  header {
+    max-width: 46rem;
+    margin-bottom: var(--space-10);
+  }
+
+  .eyebrow,
+  dt {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-caption);
+    font-weight: 700;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin-top: var(--space-2);
+    font-size: var(--font-size-heading-md);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--line-height-heading);
+  }
+
+  header > p:last-child {
+    margin-top: var(--space-4);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-body-lg);
+  }
+
+  dl {
+    display: grid;
+    gap: var(--space-3);
+    margin: 0;
+  }
+
+  .sample {
+    display: grid;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    border: var(--border-thin) solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  .sample--display dd {
+    font-size: var(--font-size-display);
+    font-weight: 700;
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--line-height-tight);
+  }
+
+  .sample--heading dd {
+    font-size: var(--font-size-heading-md);
+    font-weight: 600;
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--line-height-heading);
+  }
+
+  .sample--body-large dd {
+    font-size: var(--font-size-body-lg);
+  }
+
+  .sample--body dd {
+    max-width: 62ch;
+    font-size: var(--font-size-body);
+  }
+
+  .sample--label dd {
+    font-size: var(--font-size-label);
+    font-weight: 700;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+</style>

@@ -1,0 +1,65 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends Omit<HTMLAttributes<'a'>, 'class'> {
+  href: string;
+  newTab?: boolean;
+  class?: string;
+}
+
+const {
+  href,
+  newTab = false,
+  class: className,
+  rel,
+  ...attributes
+} = Astro.props;
+---
+
+<a
+  {...attributes}
+  href={href}
+  target={newTab ? '_blank' : undefined}
+  rel={newTab ? (rel ?? 'noreferrer') : rel}
+  class:list={['text-link', className]}
+>
+  <span>
+    <slot />
+  </span>
+  <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+    <path d="M3.5 8h9m-3.5-3.5L12.5 8 9 11.5" />
+  </svg>
+  {newTab && <span class="visually-hidden">(opens in a new tab)</span>}
+</a>
+
+<style>
+  .text-link {
+    display: inline-flex;
+    gap: var(--space-1);
+    align-items: center;
+    width: fit-content;
+    color: var(--color-text);
+    font-weight: 650;
+    text-decoration-color: var(--color-border-strong);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
+    transition: text-decoration-color var(--duration-fast) var(--ease-standard);
+  }
+
+  .text-link:hover {
+    text-decoration-color: currentColor;
+  }
+
+  svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.5;
+    transition: transform var(--duration-fast) var(--ease-expressive);
+  }
+
+  .text-link:hover svg {
+    transform: translateX(2px);
+  }
+</style>
