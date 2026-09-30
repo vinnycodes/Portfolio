@@ -12,6 +12,7 @@ Running log of decisions, learnings, and pitfalls encountered during development
 
 - CI runs for pushes to `v3` and for pull requests; `master` remains unchanged until the rebuild is promoted.
 - CI reads Node from `.nvmrc` and pnpm from the root `packageManager` field so local and hosted checks use the same toolchain.
+- The pnpm setup action tracks the maintained v6 release line because it runs actions on Node 24 rather than GitHub's deprecated Node 20 runtime.
 - The workflow has read-only repository permissions and cancels superseded runs for the same ref.
 - Linting and automated tests remain absent until project behavior justifies their dependencies and configuration.
 
