@@ -11,6 +11,8 @@ The initial portfolio is static-first but will eventually include bounded dynami
 
 Deploy `apps/web` to Vercel through its Git integration.
 
+Keep the Vercel project rooted at the repository root. The tracked `vercel.json` runs the frozen workspace install and root Turbo build, then publishes the static Astro output from `apps/web/dist`.
+
 - `master` is the production branch.
 - `v3` and pull requests receive preview deployments.
 - The production domain is attached after the v3 launch checks pass.
