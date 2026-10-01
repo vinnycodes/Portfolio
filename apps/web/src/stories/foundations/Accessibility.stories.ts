@@ -8,6 +8,7 @@ const meta = {
   component: AccessibilitySpecimen,
   parameters: {
     layout: 'fullscreen',
+    storyFrame: 'content',
     docs: {
       description: {
         component:

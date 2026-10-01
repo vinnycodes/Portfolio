@@ -42,13 +42,13 @@
     color: var(--color-text);
   }
 
-  header {
+  .type-specimen > header {
     max-width: 46rem;
     margin-bottom: var(--space-10);
   }
 
-  .eyebrow,
-  dt {
+  .type-specimen > header > .eyebrow,
+  .type-specimen > dl dt {
     color: var(--color-text-muted);
     font-size: var(--font-size-caption);
     font-weight: 700;
@@ -56,26 +56,26 @@
     text-transform: uppercase;
   }
 
-  h2 {
+  .type-specimen > header > h2 {
     margin-top: var(--space-2);
     font-size: var(--font-size-heading-md);
     letter-spacing: var(--tracking-tight);
     line-height: var(--line-height-heading);
   }
 
-  header > p:last-child {
+  .type-specimen > header > p:last-child {
     margin-top: var(--space-4);
     color: var(--color-text-muted);
     font-size: var(--font-size-body-lg);
   }
 
-  dl {
+  .type-specimen > dl {
     display: grid;
     gap: var(--space-3);
     margin: 0;
   }
 
-  .sample {
+  .type-specimen > dl > .sample {
     display: grid;
     gap: var(--space-4);
     padding: var(--space-6);
@@ -84,34 +84,34 @@
     background: var(--color-surface);
   }
 
-  dd {
+  .type-specimen > dl dd {
     margin: 0;
   }
 
-  .sample--display dd {
+  .type-specimen > dl > .sample--display dd {
     font-size: var(--font-size-display);
     font-weight: 700;
     letter-spacing: var(--tracking-tight);
     line-height: var(--line-height-tight);
   }
 
-  .sample--heading dd {
+  .type-specimen > dl > .sample--heading dd {
     font-size: var(--font-size-heading-md);
     font-weight: 600;
     letter-spacing: var(--tracking-tight);
     line-height: var(--line-height-heading);
   }
 
-  .sample--body-large dd {
+  .type-specimen > dl > .sample--body-large dd {
     font-size: var(--font-size-body-lg);
   }
 
-  .sample--body dd {
+  .type-specimen > dl > .sample--body dd {
     max-width: 62ch;
     font-size: var(--font-size-body);
   }
 
-  .sample--label dd {
+  .type-specimen > dl > .sample--label dd {
     font-size: var(--font-size-label);
     font-weight: 700;
     letter-spacing: var(--tracking-label);

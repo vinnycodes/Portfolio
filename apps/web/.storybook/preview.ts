@@ -1,16 +1,34 @@
 import type { Preview } from '@storybook-astro/framework';
 import { withThemeByDataAttribute } from '@storybook/addon-themes';
 
+import StoryFrame from '../src/stories/components/StoryFrame.astro';
 import '../src/styles/global.css';
+
+const withStoryFrame: NonNullable<Preview['decorators']>[number] = (
+  Story,
+  context
+) => {
+  const size = context.parameters.storyFrame as
+    'content' | 'card' | 'layout' | undefined;
+
+  if (!size) return Story();
+
+  return {
+    component: StoryFrame,
+    props: { size },
+    slots: { default: Story() },
+  };
+};
 
 const preview: Preview = {
   decorators: [
+    withStoryFrame,
     withThemeByDataAttribute({
       themes: {
         dark: 'dark',
         light: 'light',
       },
-      defaultTheme: 'dark',
+      defaultTheme: 'light',
       attributeName: 'data-theme',
     }),
   ],

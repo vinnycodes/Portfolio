@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '../../types/storybook';
+import { expect } from 'storybook/test';
 
 import TokenTable from '../../components/foundations/TokenTable.astro';
 
@@ -7,6 +8,7 @@ const meta = {
   component: TokenTable,
   parameters: {
     layout: 'fullscreen',
+    storyFrame: 'content',
     docs: {
       description: {
         component:
@@ -39,6 +41,23 @@ export const Semantic: Story = {
       { label: 'Primary action', token: '--color-action' },
       { label: 'Action text', token: '--color-action-text' },
     ],
+  },
+  play: async ({ canvasElement }) => {
+    const list = canvasElement.querySelector('[data-token-table] > ul');
+    const description = canvasElement.querySelector(
+      '.token-table__description'
+    );
+
+    await expect(list).not.toBeNull();
+    await expect(description).not.toBeNull();
+    const rows = (list as Element).querySelectorAll(':scope > li');
+    await expect(rows.length).toBeGreaterThan(1);
+    await expect(rows[1].getBoundingClientRect().top).toBeGreaterThan(
+      rows[0].getBoundingClientRect().top
+    );
+    await expect(getComputedStyle(description as Element).textTransform).toBe(
+      'none'
+    );
   },
 };
 

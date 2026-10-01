@@ -7,6 +7,7 @@ const meta = {
   component: MotionSpecimen,
   parameters: {
     layout: 'fullscreen',
+    storyFrame: 'content',
     docs: {
       description: {
         component:

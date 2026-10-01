@@ -14,6 +14,7 @@ Use Storybook 10 with the community-maintained Astro framework as the executable
 - Import the production global stylesheet and render production Astro components directly.
 - Organize the catalog into foundations, actions, navigation, surfaces, layout, and patterns.
 - Document tokens through previews that consume the actual CSS custom properties.
+- Namespace component-owned selectors under each component's root class. The Astro adapter injects raw component style blocks globally, so source selectors must remain isolated even when Astro's production scoping is unavailable.
 - Keep buttons, action links, text links, and icon buttons semantically separate.
 - Run every component story through Vitest and Playwright Chromium in light and dark themes.
 - Configure the accessibility addon so Axe violations fail the browser suite.
@@ -34,3 +35,4 @@ The adapter remains acceptable while it supports the active Astro and Storybook 
 - Storybook introduces development-only React dependencies and a larger toolchain, although none ship in the Astro production bundle.
 - Testing both themes increases CI installation and execution time.
 - The community adapter requires explicit compatibility monitoring during upgrades.
+- Component styles cannot rely exclusively on Astro's generated scope attributes while rendered in Storybook.

@@ -10,6 +10,7 @@ const meta = {
     slots: { default: 'Read the case study' },
   },
   parameters: {
+    layout: 'centered',
     docs: {
       description: {
         component:

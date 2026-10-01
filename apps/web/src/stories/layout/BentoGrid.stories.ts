@@ -41,6 +41,7 @@ const meta = {
   },
   parameters: {
     layout: 'fullscreen',
+    storyFrame: 'layout',
     docs: {
       description: {
         component:

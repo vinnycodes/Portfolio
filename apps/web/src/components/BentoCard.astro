@@ -93,12 +93,12 @@ const {
     --card-accent: var(--color-ambient-cool);
   }
 
-  header {
+  .bento-card > header {
     display: grid;
     gap: var(--space-2);
   }
 
-  header p {
+  .bento-card > header > p {
     color: var(--color-text-muted);
     font-size: var(--font-size-caption);
     font-weight: 700;
@@ -106,15 +106,15 @@ const {
     text-transform: uppercase;
   }
 
-  h2 {
+  .bento-card > header > h2 {
     max-width: 18ch;
     font-size: var(--font-size-heading-sm);
     letter-spacing: -0.035em;
     line-height: var(--line-height-heading);
   }
 
-  header span,
-  .bento-card__body {
+  .bento-card > header > span,
+  .bento-card > .bento-card__body {
     max-width: 58ch;
     color: var(--color-text-muted);
   }
@@ -127,7 +127,7 @@ const {
     margin-top: var(--space-5);
   }
 
-  footer {
+  .bento-card > footer {
     margin-top: auto;
     padding-top: var(--space-8);
   }

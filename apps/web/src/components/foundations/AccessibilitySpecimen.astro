@@ -48,12 +48,12 @@
     color: var(--color-text);
   }
 
-  header {
+  .accessibility-specimen > header {
     max-width: 44rem;
     margin-bottom: var(--space-8);
   }
 
-  header > p {
+  .accessibility-specimen > header > p {
     color: var(--color-text-muted);
     font-size: var(--font-size-caption);
     font-weight: 700;
@@ -61,20 +61,20 @@
     text-transform: uppercase;
   }
 
-  h2 {
+  .accessibility-specimen > header > h2 {
     margin-top: var(--space-2);
     font-size: var(--font-size-heading-md);
     letter-spacing: var(--tracking-tight);
     line-height: var(--line-height-heading);
   }
 
-  header > span {
+  .accessibility-specimen > header > span {
     display: block;
     margin-top: var(--space-3);
     color: var(--color-text-muted);
   }
 
-  ul {
+  .accessibility-specimen > ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     gap: var(--space-3);
@@ -83,8 +83,8 @@
     list-style: none;
   }
 
-  li,
-  .focus-demo {
+  .accessibility-specimen > ul > li,
+  .accessibility-specimen > .focus-demo {
     display: grid;
     gap: var(--space-1);
     padding: var(--space-5);
@@ -93,19 +93,19 @@
     background: var(--color-surface);
   }
 
-  li span,
-  .focus-demo > span {
+  .accessibility-specimen > ul > li > span,
+  .accessibility-specimen > .focus-demo > span {
     color: var(--color-text-muted);
     font-size: var(--font-size-label);
   }
 
-  .focus-demo {
+  .accessibility-specimen > .focus-demo {
     grid-template-columns: 1fr auto;
     align-items: center;
     margin-top: var(--space-3);
   }
 
-  .focus-demo a {
+  .accessibility-specimen > .focus-demo > a {
     min-height: var(--control-height-md);
     padding: 0 var(--space-5);
     border-radius: var(--radius-pill);
@@ -118,7 +118,7 @@
   }
 
   @media (max-width: 39.99rem) {
-    .focus-demo {
+    .accessibility-specimen > .focus-demo {
       grid-template-columns: 1fr;
     }
   }

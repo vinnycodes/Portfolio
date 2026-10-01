@@ -53,13 +53,13 @@ const {
     padding-block: var(--space-4);
   }
 
-  nav {
+  .site-header > nav {
     grid-column: 1 / -1;
     grid-row: 2;
     overflow-x: auto;
   }
 
-  ul {
+  .site-header > nav > ul {
     display: flex;
     gap: var(--space-1);
     width: max-content;
@@ -71,7 +71,7 @@ const {
     list-style: none;
   }
 
-  nav a {
+  .site-header > nav a {
     display: grid;
     place-items: center;
     min-height: var(--control-height-sm);
@@ -86,7 +86,7 @@ const {
       background-color var(--duration-fast) var(--ease-standard);
   }
 
-  nav a:hover {
+  .site-header > nav a:hover {
     background: var(--color-action-muted-hover);
     color: var(--color-text);
   }
@@ -96,7 +96,7 @@ const {
       grid-template-columns: 1fr auto 1fr;
     }
 
-    nav {
+    .site-header > nav {
       grid-column: auto;
       grid-row: auto;
     }

@@ -1,0 +1,33 @@
+---
+interface Props {
+  size: 'content' | 'card' | 'layout';
+}
+
+const { size } = Astro.props;
+---
+
+<div class:list={['story-frame', `story-frame--${size}`]}>
+  <slot />
+</div>
+
+<style>
+  .story-frame {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .story-frame--content {
+    display: grid;
+    justify-items: center;
+  }
+
+  .story-frame--card {
+    max-width: 44rem;
+    padding: var(--layout-gutter);
+  }
+
+  .story-frame--layout {
+    width: min(100%, calc(var(--layout-max-width) + 2 * var(--layout-gutter)));
+    padding: var(--layout-gutter);
+  }
+</style>

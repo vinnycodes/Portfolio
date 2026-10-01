@@ -4,6 +4,20 @@ Running log of decisions, learnings, and pitfalls encountered during development
 
 ---
 
+## 2026-10-01 - Storybook CSS Isolation
+
+**What:** Corrected cross-component style collisions in Storybook and standardized light-first, deliberately framed component previews.
+
+**Decisions made:**
+
+- Component-owned selectors are rooted beneath each component's unique class, with direct-child combinators where ownership is structural.
+- Storybook opens in the light theme while retaining toolbar switching and browser coverage for both themes.
+- Compact controls use Storybook's centered layout; foundation, card, and responsive layout specimens use one shared story-only frame.
+
+**Learnings:** `@storybook-astro/framework` 1.12.0 injects raw Astro style blocks globally in development and static builds. Astro scope attributes remain in rendered markup, but the injected selectors do not include the matching scope qualifier.
+
+**Pitfalls:** Broad selectors such as `ul`, `header > p`, and `svg` can silently affect unrelated stories after their modules load. The failure depends on accumulated iframe styles, so individual component checks are insufficient without cross-story visual validation. Component browser scripts needed by a static Storybook build must be inline; otherwise this adapter can emit absolute local source URLs that fail after deployment.
+
 ## 2026-09-30 - Storybook Design Foundation
 
 **What:** Implemented the responsive Astro shell, self-hosted Figtree, design tokens, semantic primitives, granular Storybook catalog, ESLint, and browser-backed accessibility tests.

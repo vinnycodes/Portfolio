@@ -5,7 +5,7 @@ import TokenTable from '../../components/foundations/TokenTable.astro';
 const meta = {
   title: 'Foundations/Radius',
   component: TokenTable,
-  parameters: { layout: 'fullscreen' },
+  parameters: { layout: 'fullscreen', storyFrame: 'content' },
 } satisfies Meta<typeof TokenTable>;
 
 export default meta;

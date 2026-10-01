@@ -60,7 +60,7 @@
 
   body {
     min-height: 100vh;
-    background: var(--color-canvas);
+    /* background: var(--color-canvas); */
     color: var(--color-text);
     line-height: var(--line-height-body);
   }

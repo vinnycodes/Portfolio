@@ -53,7 +53,8 @@
 
   @media (prefers-reduced-motion: no-preference) {
     .ambient-background__field {
-      animation: drift 18s var(--ease-expressive) infinite alternate;
+      animation: ambient-background-drift 18s var(--ease-expressive) infinite
+        alternate;
     }
 
     .ambient-background__field--warm {
@@ -65,7 +66,7 @@
     }
   }
 
-  @keyframes drift {
+  @keyframes ambient-background-drift {
     to {
       translate: 4vw 3vh;
       scale: 1.08;

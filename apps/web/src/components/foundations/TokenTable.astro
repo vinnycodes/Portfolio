@@ -41,35 +41,45 @@ const { title, description, kind = 'value', items } = Astro.props;
   </ul>
 </section>
 
-<script>
-  const updateTokenValues = () => {
-    document.querySelectorAll('[data-token-table]').forEach((table) => {
-      const kind = table.getAttribute('data-kind');
-      const rootStyles = getComputedStyle(document.documentElement);
+<script is:inline>
+  (() => {
+    const updateTokenValues = () => {
+      document.querySelectorAll('[data-token-table]').forEach((table) => {
+        const kind = table.getAttribute('data-kind');
+        const rootStyles = getComputedStyle(document.documentElement);
 
-      table.querySelectorAll('[data-token-value]').forEach((value) => {
-        const token = value.getAttribute('data-token-value');
-        if (!token) return;
+        table.querySelectorAll('[data-token-value]').forEach((value) => {
+          const token = value.getAttribute('data-token-value');
+          if (!token) return;
 
-        if (kind === 'color') {
-          const probe = document.createElement('span');
-          probe.style.color = `var(${token})`;
-          document.body.append(probe);
-          value.textContent = getComputedStyle(probe).color;
-          probe.remove();
-          return;
-        }
+          if (kind === 'color') {
+            const probe = document.createElement('span');
+            probe.style.color = `var(${token})`;
+            document.body.append(probe);
+            value.textContent = getComputedStyle(probe).color;
+            probe.remove();
+            return;
+          }
 
-        value.textContent = rootStyles.getPropertyValue(token).trim();
+          value.textContent = rootStyles.getPropertyValue(token).trim();
+        });
       });
-    });
-  };
+    };
 
-  updateTokenValues();
-  new MutationObserver(updateTokenValues).observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ['data-theme'],
-  });
+    updateTokenValues();
+
+    const observerMarker = 'data-token-table-observer';
+    if (!document.documentElement.hasAttribute(observerMarker)) {
+      document.documentElement.setAttribute(observerMarker, '');
+      new MutationObserver(updateTokenValues).observe(
+        document.documentElement,
+        {
+          attributes: true,
+          attributeFilter: ['data-theme'],
+        }
+      );
+    }
+  })();
 </script>
 
 <style>
@@ -79,7 +89,7 @@ const { title, description, kind = 'value', items } = Astro.props;
     color: var(--color-text);
   }
 
-  header {
+  .token-table > header {
     max-width: 44rem;
     margin-bottom: var(--space-8);
   }
@@ -93,7 +103,7 @@ const { title, description, kind = 'value', items } = Astro.props;
     text-transform: uppercase;
   }
 
-  h2 {
+  .token-table > header > h2 {
     font-size: var(--font-size-heading-md);
     letter-spacing: var(--tracking-tight);
     line-height: var(--line-height-heading);
@@ -104,7 +114,7 @@ const { title, description, kind = 'value', items } = Astro.props;
     color: var(--color-text-muted);
   }
 
-  ul {
+  .token-table > ul {
     display: grid;
     gap: var(--space-2);
     padding: 0;
@@ -112,7 +122,7 @@ const { title, description, kind = 'value', items } = Astro.props;
     list-style: none;
   }
 
-  li {
+  .token-table > ul > li {
     display: grid;
     grid-template-columns: 3rem minmax(10rem, 1fr) minmax(8rem, auto);
     gap: var(--space-4);
@@ -132,11 +142,11 @@ const { title, description, kind = 'value', items } = Astro.props;
     background: var(--token-preview);
   }
 
-  [data-kind='color'] .token-table__preview {
+  .token-table[data-kind='color'] .token-table__preview {
     border-radius: 50%;
   }
 
-  [data-kind='space'] .token-table__preview {
+  .token-table[data-kind='space'] .token-table__preview {
     width: min(var(--token-preview), 3rem);
     height: min(var(--token-preview), 3rem);
     min-width: 0.25rem;
@@ -145,12 +155,12 @@ const { title, description, kind = 'value', items } = Astro.props;
     background: var(--color-focus);
   }
 
-  [data-kind='radius'] .token-table__preview {
+  .token-table[data-kind='radius'] .token-table__preview {
     border-radius: var(--token-preview);
     background: var(--color-action-muted-hover);
   }
 
-  [data-kind='shadow'] .token-table__preview {
+  .token-table[data-kind='shadow'] .token-table__preview {
     border: 0;
     border-radius: var(--radius-sm);
     background: var(--color-surface-solid);
@@ -160,24 +170,27 @@ const { title, description, kind = 'value', items } = Astro.props;
   .token-table__identity {
     display: grid;
     gap: var(--space-1);
+    min-width: 0;
   }
 
-  strong {
+  .token-table__identity > strong {
     font-size: var(--font-size-label);
   }
 
-  code {
+  .token-table code {
     color: var(--color-text-muted);
     font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
     font-size: 0.75rem;
   }
 
   .token-table__value {
+    min-width: 0;
     text-align: right;
+    overflow-wrap: anywhere;
   }
 
   @media (max-width: 39.99rem) {
-    li {
+    .token-table > ul > li {
       grid-template-columns: 3rem 1fr;
     }
 

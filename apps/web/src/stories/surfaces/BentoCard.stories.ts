@@ -20,6 +20,8 @@ const meta = {
     span: { control: 'inline-radio', options: ['default', 'wide', 'tall'] },
   },
   parameters: {
+    layout: 'fullscreen',
+    storyFrame: 'card',
     docs: {
       description: {
         component:

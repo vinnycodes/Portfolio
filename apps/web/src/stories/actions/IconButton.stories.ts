@@ -18,6 +18,7 @@ const meta = {
     size: { control: 'inline-radio', options: ['small', 'medium'] },
   },
   parameters: {
+    layout: 'centered',
     docs: {
       description: {
         component:

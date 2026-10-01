@@ -7,6 +7,7 @@ const meta = {
   component: TypographySpecimen,
   parameters: {
     layout: 'fullscreen',
+    storyFrame: 'content',
     docs: {
       description: {
         component:

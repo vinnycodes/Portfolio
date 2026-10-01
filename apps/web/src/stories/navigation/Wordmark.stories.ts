@@ -6,6 +6,7 @@ const meta = {
   title: 'Navigation/Wordmark',
   component: Wordmark,
   parameters: {
+    layout: 'centered',
     docs: {
       description: {
         component:
